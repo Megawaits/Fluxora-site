@@ -365,23 +365,24 @@
         <div class="form-card" id="lead-form">
           <h3>Peça um diagnóstico gratuito</h3>
           <p class="sub">Preencha e nossa equipe entra em contato para analisar suas campanhas.</p>
-          <form id="leadFormEl">
+          <form id="leadFormEl" action="https://formspree.io/f/xnpawzpy" method="POST">
             <div class="field">
               <label for="nome">Nome</label>
-              <input id="nome" type="text" placeholder="Como podemos te chamar?" required>
+              <input id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required>
             </div>
             <div class="field">
               <label for="whats">WhatsApp</label>
-              <input id="whats" type="tel" placeholder="(00) 00000-0000" required>
+              <input id="whats" name="whatsapp" type="tel" placeholder="(00) 00000-0000" required>
             </div>
             <div class="field">
               <label for="email">E-mail</label>
-              <input id="email" type="email" placeholder="voce@empresa.com" required>
+              <input id="email" name="email" type="email" placeholder="voce@empresa.com" required>
             </div>
             <div class="field">
               <label for="invest">Investimento mensal em anúncios (opcional)</label>
-              <input id="invest" type="text" placeholder="Ex: ainda não invisto, R$ 2 mil, R$ 10 mil...">
+              <input id="invest" name="investimento" type="text" placeholder="Ex: ainda não invisto, R$ 2 mil, R$ 10 mil...">
             </div>
+            <input type="hidden" name="_subject" value="Novo lead - Fluxora">
             <button type="submit" class="submit-btn">Quero meu diagnóstico</button>
           </form>
           <p class="form-fine">Sem compromisso. Resposta em até 1 dia útil.</p>
@@ -520,9 +521,10 @@
       <div class="cta-band">
         <h2>Pronto para parar de <span class="grad-text">chutar</span> nos anúncios?</h2>
         <p>Deixe seu contato e a gente te mostra, sem compromisso, onde dá pra melhorar.</p>
-        <form class="cta-form" id="ctaFormEl">
-          <input type="text" placeholder="Seu nome" required>
-          <input type="tel" placeholder="WhatsApp" required>
+        <form class="cta-form" id="ctaFormEl" action="https://formspree.io/f/xnpawzpy" method="POST">
+          <input type="text" name="nome" placeholder="Seu nome" required>
+          <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
+          <input type="hidden" name="_subject" value="Novo lead - Fluxora (CTA final)">
           <button type="submit">Quero crescer com Ads</button>
         </form>
       </div>
@@ -545,18 +547,38 @@
 <div class="toast" id="toast">Recebemos seus dados. Em breve entramos em contato! 🚀</div>
 
 <script>
-  function showToast(){
+  function showToast(msg){
     var t = document.getElementById('toast');
+    if(msg){ t.textContent = msg; }
     t.classList.add('show');
-    setTimeout(function(){ t.classList.remove('show'); }, 3200);
+    setTimeout(function(){ t.classList.remove('show'); }, 4000);
   }
   ['leadFormEl','ctaFormEl'].forEach(function(id){
     var f = document.getElementById(id);
     if(f){
       f.addEventListener('submit', function(e){
         e.preventDefault();
-        showToast();
-        f.reset();
+        var btn = f.querySelector('button[type="submit"]');
+        var originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        fetch(f.action, {
+          method: 'POST',
+          body: new FormData(f),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response){
+          if(response.ok){
+            showToast('Recebemos seus dados. Em breve entramos em contato! 🚀');
+            f.reset();
+          } else {
+            showToast('Algo deu errado. Tenta de novo ou chama no WhatsApp.');
+          }
+        }).catch(function(){
+          showToast('Algo deu errado. Tenta de novo ou chama no WhatsApp.');
+        }).finally(function(){
+          btn.disabled = false;
+          btn.textContent = originalText;
+        });
       });
     }
   });
