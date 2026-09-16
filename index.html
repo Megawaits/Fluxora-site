@@ -199,6 +199,30 @@
   .card h4{font-family:'Sora',sans-serif;font-size:16px;margin-bottom:8px;}
   .card p{font-size:13.5px;color:var(--ink-dim);line-height:1.6;}
 
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:760px){.grid-2{grid-template-columns:1fr;}}
+  .portfolio-card{
+    display:block;background:var(--panel);border:1px solid var(--line);
+    border-radius:16px;padding:28px 26px;
+    transition:border-color .2s, transform .2s;
+  }
+  .portfolio-card:hover{border-color:var(--blue);transform:translateY(-3px);}
+  .portfolio-tag{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    letter-spacing:.04em;text-transform:uppercase;color:var(--lavender);
+    background:rgba(139,47,240,.12);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px;margin-bottom:14px;
+  }
+  .portfolio-card h4{font-family:'Sora',sans-serif;font-size:19px;margin-bottom:8px;}
+  .portfolio-card p{font-size:14px;color:var(--ink-dim);line-height:1.65;margin-bottom:18px;}
+  .portfolio-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:14px;color:var(--lavender);
+  }
+  .portfolio-card:hover .portfolio-link{color:var(--blue);}
+  .portfolio-link svg{width:14px;height:14px;transition:transform .2s;}
+  .portfolio-card:hover .portfolio-link svg{transform:translate(3px,-3px);}
+
   /* dashboard mockup */
   .mockup-shell{
     background:linear-gradient(180deg, var(--panel), var(--panel-2));
@@ -358,6 +382,8 @@ src="https://www.facebook.com/tr?id=1401298572104205&ev=PageView&noscript=1"
     </div>
     <ul class="nav-links">
       <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#criacao-sites">Criação de Sites</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
       <li><a href="#processo">Como funciona</a></li>
       <li><a href="#diferenciais">Diferenciais</a></li>
     </ul>
@@ -370,13 +396,14 @@ src="https://www.facebook.com/tr?id=1401298572104205&ev=PageView&noscript=1"
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Gestão de tráfego pago</div>
+          <div class="eyebrow"><span class="dot"></span> Tráfego pago &amp; criação de sites</div>
           <h1>Seu orçamento de anúncios,<br><span class="grad-text">transformado em cliente</span></h1>
-          <p class="lead">A Fluxora cuida das suas campanhas de Meta Ads e Google Ads de ponta a ponta — estratégia, configuração, otimização e relatório claro do que o investimento está trazendo de volta.</p>
+          <p class="lead">A Fluxora cuida das suas campanhas de Meta Ads e Google Ads de ponta a ponta — estratégia, configuração, otimização e relatório claro do que o investimento está trazendo de volta. Também criamos sites rápidos e prontos pra converter, pra quem ainda não tem uma presença online à altura do negócio.</p>
           <ul class="hero-points">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Meta Ads e Google Ads</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Otimização contínua</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Relatórios sem enrolação</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Criação de sites que convertem</li>
           </ul>
         </div>
 
@@ -471,6 +498,65 @@ src="https://www.facebook.com/tr?id=1401298572104205&ev=PageView&noscript=1"
           <h4>Relatórios claros</h4>
           <p>Um resumo simples do que entrou, o que saiu e o que isso trouxe de volta.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="criacao-sites">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" style="margin:0 auto 16px;width:fit-content;">Criação de sites</div>
+        <h2>Seu negócio também precisa de um site que converte</h2>
+        <p>Muita empresa local ainda depende só de rede social, ou nem tem presença online nenhuma. A Fluxora também cria o site profissional que está faltando — rápido de colocar no ar e pensado pra transformar visita em cliente.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></div>
+          <h4>Design sob medida</h4>
+          <p>Layout único pensado pro seu negócio — nada de template genérico igual ao do concorrente.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+          <h4>100% responsivo</h4>
+          <p>Perfeito no celular, que é de onde vem a maior parte dos seus clientes.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20.5 3.5a11 11 0 0 0-17 13.4L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5Z"/><path d="M8.5 8.5c0 4 3 7 7 7"/></svg></div>
+          <h4>WhatsApp integrado</h4>
+          <p>Botão direto pro seu WhatsApp, sem formulário complicado no meio do caminho.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h4>Rápido e sem mensalidade</h4>
+          <p>Site no ar em poucos dias, hospedado sem custo de servidor — você só paga o domínio.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#lead-form" class="nav-cta" style="padding:14px 28px;font-size:15px;">Quero um site assim</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" style="margin:0 auto 16px;width:fit-content;">Portfólio</div>
+        <h2>Exemplos reais de sites que já criamos</h2>
+        <p>Veja como fica na prática — dois sites que já colocamos no ar pra negócios locais de Sobradinho.</p>
+      </div>
+      <div class="grid-2">
+        <a class="portfolio-card" href="https://claude.ai/artifact/PsYwcr4Sbhxb8AxqxaCP3w" target="_blank" rel="noopener">
+          <span class="portfolio-tag">Restaurante &amp; Buffet</span>
+          <h4>Restaurante Fogão</h4>
+          <p>Site institucional para um buffet tradicional de Sobradinho, com cardápio em galeria, seção de eventos e reserva direta pelo WhatsApp.</p>
+          <span class="portfolio-link">Ver site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        </a>
+        <a class="portfolio-card" href="https://claude.ai/artifact/QuyXMqoe4SDY84GwLFcevT" target="_blank" rel="noopener">
+          <span class="portfolio-tag">Salão de Beleza</span>
+          <h4>Studio Eliz</h4>
+          <p>Site para um salão de beleza em Sobradinho, com vitrine de serviços, galeria de resultados e agendamento direto pelo WhatsApp.</p>
+          <span class="portfolio-link">Ver site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
